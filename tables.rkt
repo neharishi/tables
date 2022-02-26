@@ -5,7 +5,6 @@
 (define t (make-table))
 (define (empty-table? t) (null? (cdr t)))
 
-;step 1 - trace through lookup and associ to make you understand what they do
 (define (lookup key table)
   (let ((record (associ key (cdr table))))
     (if record
@@ -17,7 +16,6 @@
         ((equal? key (caar records)) (car records))
         (else (associ key (cdr records)))))
 
-;Partners work together to write insert!
 (define (insert! key value table)
   (let ((record (associ key (cdr table))))
     (if record
@@ -26,7 +24,6 @@
                   (cons (cons key value) (cdr table)))))
   'done)
         
-;Partners work together to write delete! which a deletes key/value pair from table
 (define (delete! key table)
   (let ((record (associ key (cdr table))))
     (cond ((not record) "Key not in table")
